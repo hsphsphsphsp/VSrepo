@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>test.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+    <body onload="prettyPrint()">
+        <h4></h4>
+        <pre class="prettyprint lang-cpp linenums">
+#include "pch.h"
+#include "../EventHandler/Customer.cpp"
+#include "../EventHandler/Rental.cpp"
+#include "../EventHandler/Movie.cpp"
+
+using std::string;
+/*
+TEST(TestCaseName, TestName) {
+    Customer customer = Customer(string("Bob"));
+    customer.addRental(Rental(Movie(string("Jaws"), Movie::REGULAR), 2));
+    customer.addRental(Rental(Movie(string("Golden Eye"), Movie::REGULAR), 3));
+    customer.addRental(Rental(Movie(string("Short New"), Movie::NEW_RELEASE), 1));
+    customer.addRental(Rental(Movie(string("Long New"), Movie::NEW_RELEASE), 2));
+    customer.addRental(Rental(Movie(string("Bambi"), Movie::CHILDRENS), 3));
+    customer.addRental(Rental(Movie(string("Toy Story"), Movie::CHILDRENS), 4));
+
+    string expected = "" +
+        string("Rental Record for Bob\n") +
+        string("\tJaws\t2.0\n") +
+        string("\tGolden Eye\t3.5\n") +
+        string("\tShort New\t3.0\n") +
+        string("\tLong New\t6.0\n") +
+        string("\tBambi\t1.5\n") +
+        string("\tToy Story\t3.0\n") +
+        string("Amount owed is 19.0\n") +
+        string("You earned 7 frequent renter points");
+
+    EXPECT_EQ(expected, customer.statement());
+}*/
+
+<span style = "background-color:#dfd">TEST(CustomerTest, StatementForNoRental) {
+    Customer customer = Customer(string("NAME_NOT_IMPORTANT"));</span>
+
+<span style = "background-color:#dfd">    string statement = customer.statement();</span>
+
+<span style = "background-color:#dfd">    EXPECT_EQ(statement, string("Rental Record for NAME_NOT_IMPORTANT\n")</span>
+        + string("Amount owed is 0.0\n")
+        + string("You earned 0 frequent renter points"));
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(CustomerTest, StatementForRegularMovieRentalForLessThan3Days) {
+    Customer customer = Customer(string("NAME_NOT_IMPORTANT"));
+    Movie movie = Movie(string("TITLE_NOT_IMPORTANT"), Movie::REGULAR);
+    int dayRented = 2;
+    Rental rental = Rental(movie, dayRented);
+    customer.addRental(rental);</span>
+
+<span style = "background-color:#dfd">    string statement = customer.statement();</span>
+
+<span style = "background-color:#dfd">    EXPECT_EQ(statement, string("Rental Record for NAME_NOT_IMPORTANT\n")</span>
+        + string("\tTITLE_NOT_IMPORTANT\t2.0\n")
+        + string("Amount owed is 2.0\n")
+        + string("You earned 1 frequent renter points"));
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(CustomerTest, StatementForRegularMovieRentalForMoreThan2Days) {
+    Customer customer = Customer(string("NAME_NOT_IMPORTANT"));
+    Movie movie = Movie(string("TITLE_NOT_IMPORTANT"), Movie::REGULAR);
+    int dayRented = 3;
+    Rental rental = Rental(movie, dayRented);
+    customer.addRental(rental);</span>
+
+<span style = "background-color:#dfd">    string statement = customer.statement();</span>
+
+<span style = "background-color:#dfd">    EXPECT_EQ(statement, string("Rental Record for NAME_NOT_IMPORTANT\n")</span>
+        + string("\tTITLE_NOT_IMPORTANT\t3.5\n")
+        + string("Amount owed is 3.5\n")
+        + string("You earned 1 frequent renter points"));
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(CustomerTest, StatementForNewReleaseMovie) {
+    Customer customer = Customer(string("NAME_NOT_IMPORTANT"));
+    Movie movie = Movie(string("TITLE_NOT_IMPORTANT"), Movie::NEW_RELEASE);
+    int dayRented = 1;
+    Rental rental = Rental(movie, dayRented);
+    customer.addRental(rental);</span>
+
+<span style = "background-color:#dfd">    string statement = customer.statement();</span>
+
+<span style = "background-color:#dfd">    EXPECT_EQ(statement, string("Rental Record for NAME_NOT_IMPORTANT\n")</span>
+        + string("\tTITLE_NOT_IMPORTANT\t3.0\n")
+        + string("Amount owed is 3.0\n")
+        + string("You earned 1 frequent renter points"));
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(CustomerTest, StatementForChildrenMovieRentalMoreThan3Days) {
+    Customer customer = Customer(string("NAME_NOT_IMPORTANT"));
+    Movie movie = Movie(string("TITLE_NOT_IMPORTANT"), Movie::CHILDRENS);
+    int dayRented = 4;
+    Rental rental = Rental(movie, dayRented);
+    customer.addRental(rental);</span>
+
+<span style = "background-color:#dfd">    string statement = customer.statement();</span>
+
+<span style = "background-color:#dfd">    EXPECT_EQ(statement, string("Rental Record for NAME_NOT_IMPORTANT\n")</span>
+        + string("\tTITLE_NOT_IMPORTANT\t3.0\n")
+        + string("Amount owed is 3.0\n")
+        + string("You earned 1 frequent renter points"));
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(CustomerTest, StatementForChildrenMovieRentalMoreThan4Days) {
+    Customer customer = Customer(string("NAME_NOT_IMPORTANT"));
+    Movie movie = Movie(string("TITLE_NOT_IMPORTANT"), Movie::CHILDRENS);
+    int dayRented = 3;
+    Rental rental = Rental(movie, dayRented);
+    customer.addRental(rental);</span>
+
+<span style = "background-color:#dfd">    string statement = customer.statement();</span>
+
+<span style = "background-color:#dfd">    EXPECT_EQ(statement, string("Rental Record for NAME_NOT_IMPORTANT\n")</span>
+        + string("\tTITLE_NOT_IMPORTANT\t1.5\n")
+        + string("Amount owed is 1.5\n")
+        + string("You earned 1 frequent renter points"));
+<span style = "background-color:#dfd">}</span>
+
+<span style = "background-color:#dfd">TEST(CustomerTest, StatementForNewReleaseMovieRentalMoreThan1Day) {
+    Customer customer = Customer(string("NAME_NOT_IMPORTANT"));
+    Movie movie = Movie(string("TITLE_NOT_IMPORTANT"), Movie::NEW_RELEASE);
+    int dayRented = 2;
+    Rental rental = Rental(movie, dayRented);
+    customer.addRental(rental);</span>
+
+<span style = "background-color:#dfd">    string statement = customer.statement();</span>
+
+<span style = "background-color:#dfd">    EXPECT_EQ(statement, string("Rental Record for NAME_NOT_IMPORTANT\n")</span>
+        + string("\tTITLE_NOT_IMPORTANT\t6.0\n")
+        + string("Amount owed is 6.0\n")
+        + string("You earned 2 frequent renter points"));
+<span style = "background-color:#dfd">}</span></pre>
+        <hr />
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th align="center">
+                        <small>Generated by</small>
+                        <a href="https://github.com/OpenCppCoverage/OpenCppCoverage/releases">
+                            <strong>OpenCppCoverage (Version: 0.9.9.0)</strong>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </body>
+</html>
