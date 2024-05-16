@@ -29,6 +29,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TDD1", "TDD1\TDD1.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TDD1_TEST", "TDD1_TEST\TDD1_TEST.vcxproj", "{39F20BF9-B4FA-4915-B56F-0F51BB1A9149}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SourceTreeTest", "SourceTreeTest\SourceTreeTest.vcxproj", "{9841F617-020A-4FF6-9168-2D2F2F96707C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SourceTreeGoogleTest", "SourceTreeGoogleTest\SourceTreeGoogleTest.vcxproj", "{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{20FA8245-9973-4DB4-AEDD-65E290D54377}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +151,22 @@ Global
 		{39F20BF9-B4FA-4915-B56F-0F51BB1A9149}.Release|x64.Build.0 = Release|x64
 		{39F20BF9-B4FA-4915-B56F-0F51BB1A9149}.Release|x86.ActiveCfg = Release|Win32
 		{39F20BF9-B4FA-4915-B56F-0F51BB1A9149}.Release|x86.Build.0 = Release|Win32
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Debug|x64.ActiveCfg = Debug|x64
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Debug|x64.Build.0 = Debug|x64
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Debug|x86.ActiveCfg = Debug|Win32
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Debug|x86.Build.0 = Debug|Win32
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Release|x64.ActiveCfg = Release|x64
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Release|x64.Build.0 = Release|x64
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Release|x86.ActiveCfg = Release|Win32
+		{9841F617-020A-4FF6-9168-2D2F2F96707C}.Release|x86.Build.0 = Release|Win32
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Debug|x64.ActiveCfg = Debug|x64
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Debug|x64.Build.0 = Debug|x64
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Debug|x86.ActiveCfg = Debug|Win32
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Debug|x86.Build.0 = Debug|Win32
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Release|x64.ActiveCfg = Release|x64
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Release|x64.Build.0 = Release|x64
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Release|x86.ActiveCfg = Release|Win32
+		{1C11B367-AD91-4EDC-B2A7-E8436DEE6319}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
